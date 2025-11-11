@@ -1,3 +1,4 @@
 1. What is reactDOM
 ans:-> React of extention in broweser.
 
+path vs origin in js 
