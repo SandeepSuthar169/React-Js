@@ -1,0 +1,27 @@
+React JSX -> JSX provides a syntax for JS that allow to write HTML-like code syntax to directly write within JS,
+JSX offers syntax that simplefies the process of building user UI in React application 
+
+Variables in JSX -> 
+
+function App() {
+    const name = "Alice";
+    const age = 25;
+
+    return (
+        <div>
+        <h1>Hello {name}</h1>
+        <p>Age: {age}</p>
+        </div>
+    );
+}
+
+React Props -> React Props to allow  to pass data from parent component to a child component  
+
+function Welcome({ name, age }) {
+  return <p>{name} is {age} years old</p>;
+}
+React children -> 
+
+function Card({ children }) {
+  return <div className="card">{children}</div>;
+}
