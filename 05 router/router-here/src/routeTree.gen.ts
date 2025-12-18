@@ -13,7 +13,9 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as MakingCodeRouteImport } from './routes/making-code'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AppRouteRouteImport } from './routes/app/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppDashboardRouteImport } from './routes/app/dashboard'
 import { Route as ProductPidRouteImport } from './routes/Product.$pid'
 
 const ProductsLazyRouteImport = createFileRoute('/Products')()
@@ -33,10 +35,20 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AppRouteRoute = AppRouteRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AppDashboardRoute = AppDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AppRouteRoute,
 } as any)
 const ProductPidRoute = ProductPidRouteImport.update({
   id: '/Product/$pid',
@@ -46,42 +58,65 @@ const ProductPidRoute = ProductPidRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/making-code': typeof MakingCodeRoute
   '/Products': typeof ProductsLazyRoute
   '/Product/$pid': typeof ProductPidRoute
+  '/app/dashboard': typeof AppDashboardRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/making-code': typeof MakingCodeRoute
   '/Products': typeof ProductsLazyRoute
   '/Product/$pid': typeof ProductPidRoute
+  '/app/dashboard': typeof AppDashboardRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/making-code': typeof MakingCodeRoute
   '/Products': typeof ProductsLazyRoute
   '/Product/$pid': typeof ProductPidRoute
+  '/app/dashboard': typeof AppDashboardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/making-code' | '/Products' | '/Product/$pid'
-  fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/making-code' | '/Products' | '/Product/$pid'
-  id:
-    | '__root__'
+  fullPaths:
     | '/'
+    | '/app'
     | '/about'
     | '/making-code'
     | '/Products'
     | '/Product/$pid'
+    | '/app/dashboard'
+  fileRoutesByTo: FileRoutesByTo
+  to:
+    | '/'
+    | '/app'
+    | '/about'
+    | '/making-code'
+    | '/Products'
+    | '/Product/$pid'
+    | '/app/dashboard'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/about'
+    | '/making-code'
+    | '/Products'
+    | '/Product/$pid'
+    | '/app/dashboard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRouteRoute: typeof AppRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   MakingCodeRoute: typeof MakingCodeRoute
   ProductsLazyRoute: typeof ProductsLazyRoute
@@ -111,12 +146,26 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/app/dashboard': {
+      id: '/app/dashboard'
+      path: '/dashboard'
+      fullPath: '/app/dashboard'
+      preLoaderRoute: typeof AppDashboardRouteImport
+      parentRoute: typeof AppRouteRoute
     }
     '/Product/$pid': {
       id: '/Product/$pid'
@@ -128,8 +177,21 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AppRouteRouteChildren {
+  AppDashboardRoute: typeof AppDashboardRoute
+}
+
+const AppRouteRouteChildren: AppRouteRouteChildren = {
+  AppDashboardRoute: AppDashboardRoute,
+}
+
+const AppRouteRouteWithChildren = AppRouteRoute._addFileChildren(
+  AppRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRouteRoute: AppRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   MakingCodeRoute: MakingCodeRoute,
   ProductsLazyRoute: ProductsLazyRoute,

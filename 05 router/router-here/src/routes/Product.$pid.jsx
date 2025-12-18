@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { useParams } from '@tanstack/react-router'
 export const Route = createFileRoute('/Product/$pid')({
   component: RouteComponent,
 })
