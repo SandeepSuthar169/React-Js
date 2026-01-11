@@ -1,3 +1,16 @@
+npm create vite@latest
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+--
+content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}"
+  ],
+--
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 React JSX -> JSX provides a syntax for JS that allow to write HTML-like code syntax to directly write within JS,
 JSX offers syntax that simplefies the process of building user UI in React application 
 
@@ -25,3 +38,4 @@ React children ->
 function Card({ children }) {
   return <div className="card">{children}</div>;
 }
+

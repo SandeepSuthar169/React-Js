@@ -1,8 +1,0 @@
-npm install --save-dev eslint
-npx eslint --init  
-
-
----------
-
-1. .prettier configaraton
-2. eslint
