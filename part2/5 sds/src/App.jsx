@@ -62,6 +62,9 @@ function AppContent(){
             <ChildrenProps/>
           </div>
           <div id='basic' className='scroll-my-200'>
+            <ComplexProps/>
+          </div>
+          <div id='basic' className='scroll-my-200'>
             <RefProps/>
           </div>
           <div id='basic' className='scroll-my-200'>
