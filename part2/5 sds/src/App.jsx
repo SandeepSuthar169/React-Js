@@ -2,7 +2,7 @@ import { Children } from 'react'
 import BasicProps from './components/BasicProps.jsx'
 import ChildrenProps from './components/ChildrenProps.jsx'
 import ComplexProps from './components/ComplexProps.jsx'
-import ThemeToggler from './components/ThemeToggler.jsx'
+import ThemeToggler, { ThemeProvider } from './components/ThemeToggler.jsx'
 import RefProps from "./components/RefProps.jsx"
 
 function Navigation(){
@@ -90,7 +90,9 @@ function AppContent(){
 function App() {
 
   return (
-    <AppContent />
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   )
 }
 
