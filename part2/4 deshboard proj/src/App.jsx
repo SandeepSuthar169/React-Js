@@ -1,6 +1,6 @@
 import "./App.css"
 import { useState } from "react"
-import QueueForm   from "./completed/QueueForm.jsx";
+import QueueForm   from "./components/QueueForm.jsx"
 import QueueDisplay from "./components/QueueDisplay.jsx";
 
 export default function App(){

@@ -23,11 +23,11 @@ function QueueDisplay({queue, onUpdataStates, onRemove}) {
         {queue.length === 0 ? (
           <p className='empty-queue'> No cutoner data </p>
         ) : (
-          <div className='queue-list'> {queue.map(customer) => (
+          <div className='queue-list'> {queue.map(customer => (
             <div key={customer.id} className='queue-item'>
                 <div className='customer-info'></div>
             </div>
-        )} </div>) }
+        ))} </div>) }
     </div>
   )
 }
