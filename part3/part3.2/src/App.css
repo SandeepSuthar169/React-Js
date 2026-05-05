@@ -160,8 +160,14 @@ button:hover {
   background: var(--info);
 }
 
-.remove-btn {
+/* .remove-btn {
   background: var(--error);
+} */
+
+.remove-btn {
+  background-color: red;
+  color: white;
+  margin-left: 1px;
 }
 
 .empty-queue {

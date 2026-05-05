@@ -10,6 +10,7 @@ const App = () => {
   const addToQueue = (customer) => {
     setQueue([...queue, {...customer, id: Date.now(), status: "waiting"}])
   }
+
     
   const updateStatus = (id, newStatus) => {
     setQueue(queue.map(customer => (

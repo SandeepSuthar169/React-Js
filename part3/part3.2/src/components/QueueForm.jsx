@@ -10,7 +10,7 @@ export default function QueueForm ({ onAdd }) {
     
 
     const handleSubmit = (e) => {
-       e.preventDfault()
+       e.preventDefault()
        if(!name.trim() || !service.trim()) return;
 
        onAdd({ name, service })
