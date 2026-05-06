@@ -1,30 +1,32 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import { FaUserPlus } from "react-icons/fa"
 
 const ListUserForm = ({ addTo }) => {
-
     const [name, setName] = useState("")
   
-    const handleIinputSumit = (e) => {
+    const handleInputSubmit = (e) => {  // Fixed typo
       e.preventDefault()
-      if (!name) return
+      if (!name.trim()) return  // Added trim to prevent whitespace-only names
   
       addTo({ name })
       setName("")
     }
   
-    const handleName = (e) => {
-      setName(e.target.value)
-    }
-  
+    console.log(name);
+    
     return (
-      <form onSubmit={handleIinputSumit}>
+      <form onSubmit={handleInputSubmit}>
         <input
           type="text"
           value={name}
-          onChange={handleName}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter name"
         />
-        <button type="submit">ADD</button>
+        <button type="submit">
+          <FaUserPlus /> ADD
+        </button>
       </form>
     )
-  }
+}
+
+export default ListUserForm

@@ -28,3 +28,6 @@ const ListUserDisplay = ({ user, onUpdateUser, onRemoveUser }) => {
       </div>
     )
   }
+
+
+export default ListUserDisplay;
