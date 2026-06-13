@@ -1,61 +1,38 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const App = () => {
+    const [birthday, setbirthday] = useState("")
+    const [result, setresult] = useState(0) 
+  
+    const handleBirthyear = () => {
 
-    const [celsius, setCelsius] = useState("")
-    const [fahrenheit, setFahrenheit] = useState("")
+        const birthdayNew = parseFloat(birthday);
+        const currentYear = new Date().getFullYear()
+        const cal = (currentYear - birthdayNew).toFixed(0)
 
-    const [calcel, setCalcel] = useState(0) 
-    const [calFahre, setCalFahre] = useState(0)
-
-    const handleCelsius = () => {
-        const celsiusNum = parseFloat(celsius);
-        
-        const cel = ((celsiusNum * 1.8) + 32).toFixed(3)
-        setCalcel(cel)
+        setresult(cal)
     }
 
-    const handleFahrenheit = () => {
-        const fahrenheitNum = parseFloat(fahrenheit);
 
-        const fahre = ((fahrenheitNum - 32) / 1.8).toFixed(3);
-
-        setCalFahre(fahre)
-    }
-
-  return (
+    return (
     <div>
-        <h2>Temperature Converter</h2>
+        <h2>Age Calculate</h2>
         <div>
-            <h2>{calcel}</h2>
+            <h2>{result}</h2>
         </div>
         <div>
             <input 
                 type="number" 
-                value={celsius}
-                placeholder='Write Celsius'
-                onChange={(e) => setCelsius(e.target.value)}
+                value={birthday}
+                placeholder='Enter your birth year'
+                onChange={(e) => setbirthday(e.target.value)}
             />
 
             <button
-                onClick={handleCelsius}
-            >C to F</button>
+                onClick={handleBirthyear}
+            >click</button>
         </div>
-        <div>
-            <h2>{calFahre}</h2>
-        </div>
-        <div>
-            <input 
-                type="number" 
-                value={fahrenheit}
-                placeholder='Write Fahrenheit'
-                onChange={(e) => setFahrenheit(e.target.value)}
-            />
 
-            <button
-                onClick={handleFahrenheit}
-            >F to C</button>
-        </div>
     </div>
   )
 }
