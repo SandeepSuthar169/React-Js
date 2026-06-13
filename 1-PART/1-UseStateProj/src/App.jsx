@@ -2,44 +2,59 @@ import React, { useState } from 'react'
 
 const App = () => {
 
-    const [totalBill, setTotalBill] = useState('')
-    const [tipPrecentage, setTipPrecentage] = useState('')
-    const [tip, setTip] = useState(0)
+    const [celsius, setCelsius] = useState("")
+    const [fahrenheit, setFahrenheit] = useState("")
 
-    const handleTipCalculate = () => {
-        const totalBillNum = parseFloat(totalBill)
-        const tipPrecentageNum = parseFloat(tipPrecentage)
+    const [calcel, setCalcel] = useState(0) 
+    const [calFahre, setCalFahre] = useState(0)
 
-        const tip = (totalBillNum * ( tipPrecentageNum / 100 )).toFixed(2)
-        setTip(tip)
+    const handleCelsius = () => {
+        const celsiusNum = parseFloat(celsius);
+        
+        const cel = ((celsiusNum * 1.8) + 32).toFixed(3)
+        setCalcel(cel)
+    }
+
+    const handleFahrenheit = () => {
+        const fahrenheitNum = parseFloat(fahrenheit);
+
+        const fahre = ((fahrenheitNum - 32) / 1.8).toFixed(3);
+
+        setCalFahre(fahre)
     }
 
   return (
     <div>
-        <h2>Tip Calculator</h2>
+        <h2>Temperature Converter</h2>
         <div>
-            <h3>{tip}</h3>
+            <h2>{calcel}</h2>
         </div>
         <div>
             <input 
                 type="number" 
-                value={totalBill}
-                placeholder='Total Bill '
-                onChange={(e) => setTotalBill(e.target.value)}
+                value={celsius}
+                placeholder='Write Celsius'
+                onChange={(e) => setCelsius(e.target.value)}
             />
 
-            <input 
-                type="number" 
-                value={tipPrecentage}
-                placeholder='Tip Precentage'
-                onChange={(e) => setTipPrecentage(e.target.value)}
-            />
-        </div>
-
-        <div>
             <button
-                onClick={handleTipCalculate}
-            >Calculate</button>
+                onClick={handleCelsius}
+            >C to F</button>
+        </div>
+        <div>
+            <h2>{calFahre}</h2>
+        </div>
+        <div>
+            <input 
+                type="number" 
+                value={fahrenheit}
+                placeholder='Write Fahrenheit'
+                onChange={(e) => setFahrenheit(e.target.value)}
+            />
+
+            <button
+                onClick={handleFahrenheit}
+            >F to C</button>
         </div>
     </div>
   )
