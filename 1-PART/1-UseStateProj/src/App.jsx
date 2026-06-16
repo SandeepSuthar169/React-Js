@@ -1,27 +1,22 @@
 import React, { useState } from 'react'
 
 const App = () => {
-
-    const [visible, setVisible] = useState(false)
-
-    const handleVisible = () => {
-        setVisible(!visible)
-    }
+    const [text, setText] = useState("")
 
   return (
     <div>
-        <button
-            onClick={handleVisible}
-        >
-            {visible ? "hide" : "show"} password
-        </button>
-        {visible && <p>sandeep suthar</p>}
-
+        <div>
+            <input 
+                type="text" 
+                value={text}
+                placeholder='enter your name'
+                onChange={(e) => setText(e.target.value)}
+            />
+            <h2>{text.length}</h2>
+        </div>
     </div>
   )
 }
-
-// Show/Hide Text
-// - Button toggles visibility of a paragraph.
-
+// Character Counter
+// - Text input that shows the number of characters typed.
 export default App
