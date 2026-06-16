@@ -1,22 +1,38 @@
 import React, { useState } from 'react'
 
 const App = () => {
-    const [text, setText] = useState("")
+
+    const [input, setInput] = useState("")
+    const [toggle, setToggle] = useState(false)
+
+    const handleHideShowPassword = (e) => {
+        setInput(e.target.value)
+        
+    } 
+
+    const handleToggle = () => {
+        setToggle(!toggle)
+    }
 
   return (
     <div>
         <div>
             <input 
                 type="text" 
-                value={text}
-                placeholder='enter your name'
-                onChange={(e) => setText(e.target.value)}
+                value={toggle ? input : ''}
+                onChange={handleHideShowPassword}    
             />
-            <h2>{text.length}</h2>
+            <button
+                onClick={handleToggle}
+            >{toggle ? "Show" : "Hide"}Password</button>
+
+
+
+            <h1>{toggle ? input : " "}</h1>
         </div>
     </div>
   )
 }
-// Character Counter
-// - Text input that shows the number of characters typed.
+// Password Visibility Toggle**
+// - Show/Hide password in an input field.
 export default App

@@ -13,7 +13,7 @@ const App = () => {
         <button
             onClick={handleVisible}
         >
-            {visible ? "hide" : "show"} password
+            {visible ? "hide" : ""} password
         </button>
         {visible && <p>sandeep suthar</p>}
 
