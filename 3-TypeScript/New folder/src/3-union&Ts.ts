@@ -3,7 +3,7 @@
 let sub: number | string = 1
 let subs: number | string = "1M"
 
-// ----------------------------------------------------
+// ----------------------------------------------------   imp
 
 let apiRequestStatus: 'pending' | 'success' | 'error' = 'pending'
 
@@ -17,7 +17,7 @@ let airlineSeat: 'aisle' | 'window' | 'middle' = 'aisle'
 
 airlineSeat = 'aisle'
 
-// ----------------------------------------------------
+// ----------------------------------------------------   imp
 
 const orders = ['12', '20', '32', "97"]
 

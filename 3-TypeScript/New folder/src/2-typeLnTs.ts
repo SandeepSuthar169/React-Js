@@ -1,10 +1,10 @@
 // type infrance
-let drink = "choofe"
+let drink = "choofe"              /// imp
 
 let cups = Math.random() > 0.5 ? 10 : "5"
 
 let myName = "SandeepSuthar" 
-// ------------------------------------------------------------
+// ------------------------------------------------------------   imp
 
 // type anotation 
 
