@@ -8,7 +8,7 @@ type Book = {
 } 
 
 
-let bookString = '{"name": "whow moved my cheese"}'
+let bookString = `{"name": "whow moved my cheese"}`
 let bookObject = JSON.parse(bookString) as Book
 
 console.log(bookObject);
