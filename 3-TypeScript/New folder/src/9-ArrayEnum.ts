@@ -18,3 +18,38 @@ const nenu: coffee[] = [
 // ------------------- read only array -------------------------------
 
 
+let cities: readonly string[] = ['vadodara', 'surat', "pune"]
+// cities.push("pune")
+
+// -----------------------------------------------
+
+const coffeeItems: [name: string, price: number] = ["soft Coffee", 30]
+
+// --------------------------------------------------
+
+enum CupSize {
+    SMALL,
+    MEDIUM,
+    LARGE
+}
+
+const size = CupSize.MEDIUM
+const size1 = CupSize.LARGE
+
+// --------------------------------------------------   // v.v imp
+
+enum CoffeeType {
+    SOFT = "soft",
+    HOT = "hot",
+    COOL = "cool"
+}
+
+const makeFunciton = (type:CoffeeType) => {
+    console.log(type);
+
+}
+
+makeFunciton(CoffeeType.COOL)
+
+// --------------------------------------------------
+
